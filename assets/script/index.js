@@ -1,6 +1,6 @@
 'use strict';
 
-import Contact from './contact.js';
+import { Contact } from './contact.js';
 import { onEvent, select } from './utils.js';
 
 
