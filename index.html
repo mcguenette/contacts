@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +21,21 @@
     <title>Contacts</title>
 </head>
 <body>       
-    <main>
-        <div class="container">
-
+  <main>
+    <div class="container">
+      <h1>My contacts</h1>
+      <section>
+        <div>
+          <form action="" method="get" id="contact-form">
+            <input type="text" name="contact-info" id="contact-add" placeholder="Name, City, Email">
+            <input type="button" value="Add" id="contact-button" class="primary-button">
+          </form>
         </div>
-    </main>
+      </section>
+      <section>
+        <div id="contact-output"></div>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
