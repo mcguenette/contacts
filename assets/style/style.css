@@ -69,3 +69,13 @@ input[type='text'] {
 h1 {
     margin-bottom: 30px;
 }
+
+.newest-contact {
+    border: 2px solid var(--primary-green);
+    padding: 10px;
+  }
+
+
+div#contact-output {
+    width: 100%;
+}
