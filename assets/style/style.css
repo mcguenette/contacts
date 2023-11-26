@@ -32,7 +32,7 @@ body {
 section {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -62,7 +62,6 @@ input[type='text'] {
 .contact-card {
     border: 1px solid var(--light-color);
     padding: 20px;
-    width: 300px;
     margin-bottom: 15px;
 }
 
@@ -71,11 +70,20 @@ h1 {
 }
 
 .newest-contact {
-    border: 2px solid var(--primary-green);
-    padding: 10px;
+    border: 1px solid var(--primary-green);
+}
+
+#contact-output {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
   }
 
+.contact-card:hover {
+    border: 1px solid var(--primary-pink);
+    cursor: pointer;
+}
 
-div#contact-output {
-    width: 100%;
+p.total-contacts {
+    text-align: center;
 }

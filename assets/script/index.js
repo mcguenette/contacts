@@ -1,17 +1,16 @@
 'use strict';
 
 import { Contact } from './contact.js';
-import { onEvent, select, selectAll } from './utils.js';
+import { onEvent, select } from './utils.js';
 
-// Global variables
 const contacts = [];
 const contactButton = select('#contact-button');
 const contactOutput = select('#contact-output');
 const validationMessage = select('#validation-message');
 const contactInput = select('#contact-add');
 
-// Variable Hoisting -- googled this again and looked over notes
-let contactCard, nameParagraph, cityParagraph, emailParagraph, countParagraph, newContact, contactInfo, index;
+// 
+let contactCard, nameInput, cityInput, emailInput, totalContacts, newContact, contactInfo, index;
 
 function highlightNewestContact() {
   if (contacts.length > 0) {
@@ -21,42 +20,79 @@ function highlightNewestContact() {
 
       const newestMessage = document.createElement('p');
       newestMessage.textContent = 'Newest contact added';
-      newestMessage.style.color = '#9f0';
       contactOutput.insertBefore(newestMessage, newestContactCard);
     }
   }
 }
 
-function listContacts() {
-  contactOutput.innerHTML = ''; 
-
-  contacts.forEach((contact, i) => {
-    contactCard = document.createElement('div');
-    contactCard.classList.add('contact-card');
-
-    nameParagraph = document.createElement('p');
-    cityParagraph = document.createElement('p');
-    emailParagraph = document.createElement('p');
-
-    nameParagraph.textContent = `Name: ${contact.name}`;
-    cityParagraph.textContent = `City: ${contact.city}`;
-    emailParagraph.textContent = `Email: ${contact.email}`;
-
-    contactCard.appendChild(nameParagraph);
-    contactCard.appendChild(cityParagraph);
-    contactCard.appendChild(emailParagraph);
-
-    contactCard.onclick = () => deleteContact(contact);
-
-    contactOutput.appendChild(contactCard);
+function adjustLayout() {
+  const contactCards = Array.from(document.querySelectorAll('.contact-card'));
+  contactCards.forEach((card, index) => {
+    if ((index + 1) % 3 === 0) {
+      // Add a class to the third card in each row
+      card.classList.add('third-in-row');
+    }
   });
-
-  countParagraph = document.createElement('p');
-  countParagraph.textContent = `Total contacts: ${contacts.length}`;
-  contactOutput.appendChild(countParagraph);
-
-  highlightNewestContact();
 }
+
+function createContactCard(contact) {
+    const contactCard = document.createElement('div');
+    contactCard.classList.add('contact-card');
+  
+    const nameInput = document.createElement('p');
+    const cityInput = document.createElement('p');
+    const emailInput = document.createElement('p');
+  
+    nameInput.textContent = `Name: ${contact.name}`;
+    cityInput.textContent = `City: ${contact.city}`;
+    emailInput.textContent = `Email: ${contact.email}`;
+  
+    contactCard.appendChild(nameInput);
+    contactCard.appendChild(cityInput);
+    contactCard.appendChild(emailInput);
+  
+    // delete the contact
+    contactCard.onclick = () => deleteContact(contact);
+  
+    return contactCard;
+  }
+  
+  function updateTotalContacts() {
+    const existingTotalContacts = document.querySelector('.total-contacts');
+    
+    // If totalContacts already exists, update its text content
+    if (existingTotalContacts) {
+      existingTotalContacts.textContent = `Total contacts: ${contacts.length}`;
+    } else {
+      const totalContacts = document.createElement('p');
+      totalContacts.textContent = `Total contacts: ${contacts.length}`;
+      totalContacts.classList.add('total-contacts');
+  
+      // Assuming validation message is under the same container with the id 'validation-message'
+      const validationSection = document.getElementById('validation-message').parentElement;
+      validationSection.appendChild(totalContacts);
+    }
+  }
+  
+  
+  
+  function listContacts() {
+    contactOutput.innerHTML = ''; // Clear previous content
+  
+    contacts.forEach((contact) => {
+      const contactCard = createContactCard(contact);
+      contactOutput.appendChild(contactCard);
+    });
+  
+    updateTotalContacts();
+  
+    // Highlight the newest contact
+    highlightNewestContact();
+  
+    // Adjust layout to have a maximum of three cards per row
+    adjustLayout();
+  }
+  
 
 function addContact() {
   contactInfo = contactInput.value.split(',').map((info) => info.trim());
@@ -85,15 +121,6 @@ function addContact() {
 
   listContacts();
 }
-
-function adjustLayout() {
-    const contactCards = Array.from(selectAll('.contact-card'));
-    contactCards.forEach((card, index) => {
-      if ((index + 1) % 3 === 0) {
-        card.classList.add('third-in-row');
-      }
-    });
-  
 
 function deleteContact(contact) {
   index = contacts.indexOf(contact);
