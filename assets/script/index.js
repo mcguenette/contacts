@@ -17,16 +17,19 @@ function highlightContact() {
     const newestMessageSection = select('.newest-contact-section');
     const newestMessage = select('#newest-contact-message');
 
-    if (contacts.length > 0) {
-        newestContactCard.classList.add('newest-contact');
-        newestMessage.textContent = 'Newest contact added';
-        newestMessageSection.style.display = 'block';
-    } else {
-        newestContactCard.classList.remove('newest-contact');
-        newestMessage.textContent = '';
-        newestMessageSection.style.display = 'none';
+    if (newestContactCard) {
+        if (contacts.length > 0) {
+            newestContactCard.classList.add('newest-contact');
+            newestMessage.textContent = 'Newest contact added';
+            newestMessageSection.style.display = 'block';
+        } else {
+            newestContactCard.classList.remove('newest-contact');
+            newestMessage.textContent = '';
+            newestMessageSection.style.display = 'none';
+        }
     }
 }
+
 
 function createContactCard(contact) {
     const contactCard = document.createElement('div');
@@ -114,6 +117,13 @@ function deleteContact(contact) {
     }
 }
 
+function onEnter(event) {
+    if (event.key === 'Enter' || event.key === '\u000D') {
+        addContact();
+    }
+}
+
 onEvent('click', contactButton, addContact);
+onEvent('keydown', contactInput, onEnter);
 
 listContacts();
