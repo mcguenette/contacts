@@ -8,7 +8,7 @@
     --primary-blue: #09f;
     --secondary-blue: rgb(0, 119, 198);
     --primary-green: #9f0;
-    --primary-pink: #f09;
+    --primary-red: rgb(255, 0, 93);
     --primary-orange: #f90;
     --primary-purple: #90f;
 }
@@ -100,7 +100,7 @@ h1 {
 }
 
 .contact-card:hover {
-    border: 1px solid var(--primary-pink);
+    border: 1px solid var(--primary-red);
     cursor: pointer;
 }
 
@@ -121,3 +121,19 @@ p#newest-contact-message {
 p#validation-message {
     color: var(--primary-orange);
 }
+
+
+/* @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .newest-contact {
+    animation: fadeIn 0.3s ease-out;
+  } */

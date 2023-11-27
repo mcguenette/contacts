@@ -118,6 +118,7 @@ function deleteContact(contact) {
     if (index !== -1) {
         contacts.splice(index, 1);
         listContacts();
+        contactInput.focus();
     }
 }
 
@@ -129,7 +130,14 @@ function onEnter(event) {
 }
 
 
-onEvent('click', contactButton, addContact);
+onEvent('click', contactButton, () => {
+    addContact();
+    contactInput.focus();
+});
 onEvent('keydown', contactInput, onEnter);
+
+onEvent('load', window, () => {
+    contactInput.focus();
+});
 
 listContacts();
