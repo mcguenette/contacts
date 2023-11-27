@@ -51,7 +51,7 @@ function createContactCard(contact) {
 }
 
 function updateTotalContacts() {
-    const existingTotalContacts = document.querySelector('.total-contacts');
+    const existingTotalContacts = select('.total-contacts');
 
     if (existingTotalContacts) {
         existingTotalContacts.textContent = `Total contacts: ${contacts.length}`;

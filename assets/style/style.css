@@ -6,6 +6,7 @@
     --secondary-dark-color: #ffffff0d;
     --light-color: #fafafa;
     --primary-blue: #09f;
+    --secondary-blue: rgb(0, 119, 198);
     --primary-green: #9f0;
     --primary-pink: #f09;
     --primary-orange: #f90;
@@ -35,12 +36,18 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .primary-button {
     background-color: var(--primary-blue);
     color: var(--light-color);
     width: 100px;
+    transition: all 0.5s ease;
+}
+
+.primary-button:hover {
+    background-color: var(--secondary-blue);
 }
 
 input {
@@ -86,6 +93,7 @@ h1 {
     border: 1px solid var(--light-color);
     padding: 20px;
     margin-bottom: 20px;
+    transition: all 0.5s ease;
 }
 
 .contact-card:hover {
