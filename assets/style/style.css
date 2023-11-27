@@ -23,10 +23,11 @@ body {
     width: min(100% - 30px, 1080px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-inline: auto;
     min-height: 100dvh;
+    margin-top: 60px;
 }
 
 section {
@@ -73,11 +74,11 @@ h1 {
     border: 1px solid var(--primary-green);
 }
 
-
 #contact-output {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    width: 100%;
 }
 
 .contact-card {
@@ -100,4 +101,8 @@ section.contact-entries {
 
 p.total-contacts {
     text-align: center;
+}
+
+p#newest-contact-message {
+    color: var(--primary-green);
 }
