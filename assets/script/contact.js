@@ -1,24 +1,27 @@
-'use strict'
+'use strict';
 
 class Contact {
-    constructor(name, city, email) {
-      this._name = name;
-      this._city = city;
-      this._email = email;
-    }
-  
-    get name() {
-      return this._name;
-    }
-  
-    get city() {
-      return this._city;
-    }
-  
-    get email() {
-      return this._email;
-    }
-  }
-  
+  #name;
+  #city;
+  #email;
 
-  export { Contact };
+  constructor(name, city, email) {
+    this.#name = name;
+    this.#city = city;
+    this.#email = email;
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  get city() {
+    return this.#city;
+  }
+
+  get email() {
+    return this.#email;
+  }
+}
+
+export { Contact };
