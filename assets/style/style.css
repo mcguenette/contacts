@@ -69,20 +69,34 @@ h1 {
     margin-bottom: 30px;
 }
 
-.newest-contact {
+.contact-card.newest-contact {
     border: 1px solid var(--primary-green);
 }
 
+
 #contact-output {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-  }
+}
+
+.contact-card {
+    box-sizing: border-box;
+    border: 1px solid var(--light-color);
+    padding: 20px;
+    margin-bottom: 20px;
+}
 
 .contact-card:hover {
     border: 1px solid var(--primary-pink);
     cursor: pointer;
 }
+
+section.contact-entries {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 p.total-contacts {
     text-align: center;
