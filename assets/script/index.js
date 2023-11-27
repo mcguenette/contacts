@@ -36,7 +36,7 @@ function createContactCard(contact) {
     const cityInput = document.createElement('p');
     const emailInput = document.createElement('p');
 
-    nameInput.textContent = `Name: ${contact.name}`;
+    nameInput.textContent = `Name: ${contact.name}`; // will add the non appended names to html at a later date.
     cityInput.textContent = `City: ${contact.city}`;
     emailInput.textContent = `Email: ${contact.email}`;
 
