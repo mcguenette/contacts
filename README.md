@@ -45,4 +45,4 @@ Clears existing validation/error messages.
 validationMessage.textContent = '';
 ```
 
- [DEMO](https://mcguenette.github.io/contacts/)
+ Click for [DEMO](https://mcguenette.github.io/contacts/)
