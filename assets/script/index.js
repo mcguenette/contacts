@@ -28,6 +28,10 @@ function highlightContact() {
             newestMessageSection.style.display = 'none';
         }
     }
+
+    if (contacts.length === 0) {
+        newestMessage.textContent = '';
+    }
 }
 
 

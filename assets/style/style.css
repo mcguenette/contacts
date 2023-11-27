@@ -20,6 +20,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+main {
+    margin-top: 60px;
+}
+
 .container {
     width: min(100% - 30px, 1080px);
     display: flex;
@@ -28,7 +32,6 @@ body {
     align-items: center;
     margin-inline: auto;
     min-height: 100dvh;
-    margin-top: 60px;
 }
 
 section {
@@ -113,4 +116,8 @@ p.total-contacts {
 
 p#newest-contact-message {
     color: var(--primary-green);
+}
+
+p#validation-message {
+    color: var(--primary-orange);
 }
