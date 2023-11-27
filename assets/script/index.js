@@ -119,9 +119,11 @@ function deleteContact(contact) {
 
 function onEnter(event) {
     if (event.key === 'Enter' || event.key === '\u000D') {
-        addContact();
+        event.preventDefault(); // Using this to prevent enter to refresh the page - default submit behaviour
+        addContact();           // Wondering if changing the type instead would be best.
     }
 }
+
 
 onEvent('click', contactButton, addContact);
 onEvent('keydown', contactInput, onEnter);
